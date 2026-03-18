@@ -8,6 +8,10 @@ class Category(PublishedModel):
     slug = models.SlugField(max_length=64, unique=True)
     output_order = models.PositiveSmallIntegerField(default=100)
 
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
 
 class Topping(PublishedModel):
     title = models.CharField(max_length=256)
@@ -35,4 +39,3 @@ class IceCream(PublishedModel):
     )
     toppings = models.ManyToManyField(Topping)
     is_on_main = models.BooleanField(default=False)
-
